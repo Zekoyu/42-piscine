@@ -1,0 +1,53 @@
+man = manuel (/[test] = chercher test)
+cd = current directory (. = courant, .. = parent)
+pwd = repertoire courant
+ls = liste contenu (fichier & repertoires. -l = details, -a = montrer fichiers caches, -p ajoute \ aux repertoires) 
+mkdir = make dir
+rmdir = remove dir
+echo = message sur stdout
+cat = ouvrir fichier (-e = montrer caracteres invisibles)
+touch = creer fichier (-t = changer date d'acces / modif)
+chmod = changer permissions. 3 triplets (r/w/x/-) read write execute. 1 = user / 2 = group / 3 = other (ex: rwxr-x---).
+chmod [o(others) a(all) g(group)] [+ (add) / - (remove)] [r(4)w(2)x(1)]  (ex: chmod g+w  = chmod x2x)
+env = variables d'environnement
+export [variable] = fait de la variable locale une variable d'environnement
+wc = process files (-l = nombre de lignes)
+more = pagination (longs fichiers par ex) (/[test] = chercher test)
+head = montre le debut d'un fichier (-n [nombre] = nombre de lignes, -c [nombre] = nombre. de caracteres (non visibles inclus))
+tail = montre la fin d'un fichier (-n [nombre] = nombre de lignes, -c [nombre] = nombre. de caracteres (non visibles inclus))
+grep [motif] = cherche dans le fichier (-v = inverse, -i = case insensitive)
+find [starting dir] = trouve les enfants (-name [nom], -type [d (directory)] = specifier le type, -maxdepth [number] = profondeur max) 
+Find + -exec [commande] ( {} = chaque chemin de fichier trouve par find) \;   (\; pour que le ; soit passe a la commande exec et non a find)
+bc = calculatrice (pas d'assignement = affichage, sinon pas d'affichage)
+ln [source] [lien] = lien (-s = symbolique)
+tr'[char]' '[char]' = remplace un caractere
+sed '[mode (s = substitutes)]/[pattern]/[replacement]/[nombre (g = toutes les occurences)]' (-n = suppress output)
+awk '(condition) {action (print)}' (-F '[char/regex]' = field separator)s
+dd of=[fichier] bs=[pattern (1k = 1 octet)] count=[nombre]
+(Stdout) bc (obase=[number]; ibase=[number]; [number to convert]) = base converter
+Ex: echo "1+1" | bc   ===> 2. METTRE OBASE AVANT IBASE (Sinon base en base base = pas cool)
+
+
+$[variable]
+*[.txt ...] = any chars (multiple)
+?[.txt ...] = any char (only one)
+~ = account root dir
+'' "" \ = pour eviter la substitution
+
+
+| = redirige stdout (standard output) vers un programme
+> = redirige stdout vers un fichier (ecrase)
+>> = redirige stdout vers un fichier (ajoute)
+2> = redirige stderr (standard error) vers un fichier
+< = stdout depuis un fichier
+<< [keyword] = reçoit stdout jusqu'au mot clé (ex: cat << TEST)
+2>&1 = redirige stderr vers stdout (place toujours en dernier)
+
+
+Ctrl + C / Ctrl + D (End Of File) / q / quit / ctrl + \ (pas ouf) pour quitter
+
+
+TAB = autocompletion
+Ctrl + K = cut du curseur jusqu'a la fin de la ligne
+Ctrl + C = supprimer lignes
+Ctrl + L = clear console
